@@ -78,7 +78,7 @@ const IMAGES = {
    image — ключ картинки из IMAGES (или ссылка на свою картинку) */
 const PRESENTATIONS = [
   { title: "ATODERM", desc: "Кроме Atoderm AD Intensive Бальзам", file: "ATODERM.pptx", size: "58 МБ", color: "#0077CF", image: "ATODERM" },
-  { title: "ATOPIC SKIN + ATODERM AD INTENSIVE БАЛЬЗАМ", desc: "Atoderm AD Intensive Бальзам, 2026", file: "ATOPIC-SKIN-AD-INTENSIVE-BALM.pptx", size: "30 МБ", color: "#0077CF", image: "ATOPIC" },
+  { title: "ATOPIC SKIN + ATODERM AD INTENSIVE БАЛЬЗАМ", desc: "Atoderm AD Intensive Бальзам, 2026", file: "ATOPIC-SKIN-AD-INTENSIVE-BALM.pptx", size: "53 МБ", color: "#0077CF", image: "ATOPIC", noGamma: true },
   { title: "CICABIO", desc: "", file: "CICABIO.pptx", size: "42 МБ", color: "#582C83", image: "CICABIO" },
   { title: "NODE", desc: "", file: "NODE.pptx", size: "20 МБ", color: "#309B42", image: "NODE" },
   { title: "PHOTODERM", desc: "", file: "PHOTODERM.pptx", size: "96 МБ", color: "#FFB600", image: "PHOTODERM" },
@@ -105,7 +105,7 @@ document.getElementById("grid").innerHTML = PRESENTATIONS.map(p => {
     <div class="cover" style="background-color:${esc(p.color)};background-image:url('${img}')"><span class="${p.title.length > 18 ? "long" : ""}">${esc(p.title)}</span></div>
     <div class="bar" style="background:${esc(p.color)}"></div>
     <div class="body">
-      <p class="meta"><b>Гамма ${esc(p.title)}</b>${p.desc ? esc(p.desc) + " · " : ""}PPTX · ${esc(p.size)}</p>
+      <p class="meta"><b>${p.noGamma ? "" : "Гамма "}${esc(p.title)}</b>${p.desc ? esc(p.desc) + " · " : ""}PPTX · ${esc(p.size)}</p>
       <a class="btn" href="${url}" download>${icon}Скачать</a>
     </div>
   </article>`;
